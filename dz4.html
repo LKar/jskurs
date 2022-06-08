@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+
+        //Задание 1.1
+
+        /* function Product(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        Product.prototype.show = function (make25PercentDiscount) {
+            alert(this.name + ' - ' + (this.price - (this.price * 0.25)));
+        };
+
+        let obj1 = new Product('Price', prompt('введите значение'));
+        obj1.show();
+
+        class Product1 {
+            constructor(name1, price1) {
+                this.name1 = name1;
+                this.price1 = price1;
+            }
+
+            show(make25PercentDiscount1) {
+                alert(this.name1 + ' - ' + (this.price1 - (this.price1 * 0.25)));
+            }
+        }
+
+        let obj2 = new Product1('Price', prompt('введите значение'));
+        obj2.show(); 
+
+        //Задание 1.2
+
+        function Post(author, text, date) {
+            this.author = author;
+            this.text = text;
+            this.date = date;
+        }
+
+        Post.prototype.edit = function () {
+            alert(this.author + ': ' + this.text + ' (' + this.date + ')');
+        };
+
+        let PostObj = new Post('Kate', prompt('введите текст'), prompt('введите дату'));
+
+        function AttachedPost(author, text, date, highlighted) {
+            Post.call(this, author, text, date);
+            this.highlighted = highlighted;
+        }
+
+        AttachedPost.prototype = Object.create(Post.prototype);
+        AttachedPost.prototype.constructor = AttachedPost;
+
+        AttachedPost.prototype.makeTextHighlighted = function () {
+            this.highlighted = true;
+        };
+
+        let AtObj = new AttachedPost('Kate', 'world', '08.11', false);
+        AtObj.makeTextHighlighted();
+        PostObj.edit();
+        console.log(AtObj); */
+
+        class Post {
+            constructor(author, text, date) {
+                this.author = author;
+                this.text = text;
+                this.date = date;
+            }
+
+            edit() {
+                alert(this.author + ': ' + this.text + ' (' + this.date + ')');
+            }
+        }
+
+        class AttachedPost extends Post {
+            constructor(author, text, date, highlighted) {
+                super(author, text, date);
+                this.highlighted = highlighted;
+            }
+
+            makeTextHighlighted() {
+                this.highlighted = true;
+            }
+        }
+
+        let PostObj = new AttachedPost('Kate', 'world', '08.11', false);
+        PostObj.edit();
+        PostObj.makeTextHighlighted();
+        console.log(PostObj);
+    </script>
+</body>
+
+</html>
